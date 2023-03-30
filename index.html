@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="box">
+          <input type="button" name="" id="cout">
+          <div id="input">
+            <input type="text" name="" id="in" class="input" />
+          </div>
+
+          <div class="box2">
+            <div class="javob"></div>
+            <div class="savol"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script>
+    const box2 = document.querySelector(".box2");
+    const input = document.querySelector(".input");
+    const button = document.querySelector("button");
+    let savol = document.querySelector(".savol");
+    let javob = document.querySelector(".javob");
+    const cout = document.querySelector("#cout")
+    // let jsw = document.querySelector(".jw");
+    // let jvv = document.querySelector(".jvv");
+    //     // const sp = document.querySelectorAll("span")
+
+    //     // const inp = input.value.toLowerCase().trim();
+
+    // window.addEventListener("click" , ()=>{
+    //   console.log(qalesan);
+
+    // })
+
+    // input.addEventListener("keyup", () => {
+    //   console.log(inp.value);
+    // });
+
+    function send() {
+      const creJav = document.createElement("span");
+      creJav.classList.add("jw");
+
+      const creSav = document.createElement("div");
+      creSav.classList.add("sav");
+      savol.innerHTML += `<h4>${input.value} </h4>`;
+
+      javob.appendChild(creJav);
+      savol.appendChild(creSav);
+
+      //  setTimeout(() => {
+      //   span.classList.add("jvv")
+      //  }, 1000);
+      //    setTimeout(() => {
+      //     javob.classList.remove("jvv")
+      //    }, 2000);
+
+      const qal = ["yaxshi", "zur", "alo", "normalno", "udar"];
+
+      const qalesan = qal[Math.floor(qal.length * Math.random())];
+
+      // qalesan=='qales'
+
+      if (input.value == "qalesan") {
+        setTimeout(() => {
+          creJav.innerHTML = `<h4>${qalesan}</h4>`;
+        }, 1000);
+        input.value = "";
+      } else {
+        creJav.innerHTML = "";
+      }
+
+      // salom
+      const salom = ["hello" , "alik" , "salom" , "salom nima yordam kerak "]
+      const sal= salom[Math.floor(salom.length*Math.random())]
+      if (input.value == "salom") {
+        setTimeout(() => {
+          creJav.innerHTML = `<h4>${sal}</h4>`;
+        }, 1000);
+      }
+
+      if (input.value == "uka") {
+        setTimeout(() => {
+          creJav.innerHTML = `<h4>hov aka</h4>`;
+        }, 1000);
+      }
+
+      const vaqt = new Date().getHours();
+      const minut = new Date().getMinutes();
+
+      if (input.value.trim() == "soat") {
+        setTimeout(() => {
+          creJav.innerHTML += vaqt + minut;
+        }, 1000);
+      }
+    }
+
+    if (input.value.length == 1) {
+      alert("malumot kiriting");
+    }
+
+
+       
+    
+      const yar = ["yaratuvching kim","kim sani yaratkan","кто тебя создал", "ok"]
+     
+     const yarSav = yar.find((item)=>item == input.value)
+
+     console.log(yarSav);
+     if(input.value.trim() == yarSav){
+
+      setTimeout(() => {
+          creJav.innerHTML = `<h4>Baxrullo Xalilov</h4>`;
+        }, 1000);
+
+     }
+     
+
+    function clear() {
+      if (input.value == "clear") {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      }
+    }
+
+    function youtube(){
+
+      const yout =["youtube" , "och" , "youtubeni och"]
+
+      const yt = yout.find((item)=>item == input.value)
+      
+      // const ytt = yout[Math.floor(yout.length * Math.random)]
+      if (input.value.trim() == yt) {
+        setTimeout(() => {
+       
+       location.replace("https://www.youtube.com/")
+       
+        }, 2000);
+      }
+    }
+
+   
+   
+ 
+  //  cout - sanoq yani zapros qancha buldi
+
+    
+
+     function sanoq(){
+      cout.value++
+
+      if(cout.value>0 && cout.value>50){
+       alert("SIZGA BUGUNGA BERILGAN LIMIT TUGADI , ERTAGA KURISHGUNCHA SOG OMON BULING")
+       
+       location.replace("https://www.youtube.com/")
+    }
+
+     }
+
+     
+ 
+
+  
+    
+    // down--- scroll on enter message---
+
+    // function down(){
+    //   if(scroll==500){
+    //     alert("okk")
+    //   }
+    // }
+    // down()
+
+    //----- button ---
+
+    window.addEventListener("keyup", (e) => {
+      if (e.keyCode == "13") {
+      
+        setTimeout(() => {
+          send();
+        clear();
+        youtube()
+  
+        }, 1000);
+    
+       sanoq()
+  
+      }
+    });
+  </script>
+</html>
